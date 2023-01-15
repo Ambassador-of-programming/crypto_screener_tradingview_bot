@@ -20,7 +20,7 @@ while True:
     bot = telebot.TeleBot(TOKEN, parse_mode=None)
 
     # Указываем группу в которую будет присылать всю информацию
-    name_channel = '@trading_statistics'
+    name_channel = '@HereWriteTelegramGroup'
     
     
     def moving_averages():
