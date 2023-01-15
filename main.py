@@ -20,7 +20,7 @@ while True:
     bot = telebot.TeleBot(TOKEN, parse_mode=None)
 
     # Указываем группу в которую будет присылать всю информацию
-    name_channel = '@HereGroupTelegram'
+    name_channel = '@trading_statistics'
     
     
     def moving_averages():
@@ -45,8 +45,8 @@ while True:
 
                 fig = go.Figure([go.Scatter(x=dataset['Datetime'], y=dataset['Close'])])
                 fig.update_layout(title=f"Монета: {coin}  Время: {dt.datetime.now()}")
-                fig.write_image("image/stat.png", scale=5)
-                bot.send_photo(name_channel, photo=open('image/stat.png', 'rb'))
+                fig.write_image("image/strong_buy_moving_averages.png", scale=5)
+                bot.send_photo(name_channel, photo=open('image/strong_buy_moving_averages.png', 'rb'))
 
                 link = f"https://www.binance.com/ru/futures/{coin}"
                 markup = types.InlineKeyboardMarkup()
@@ -61,7 +61,7 @@ while True:
 👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}
                 ''', reply_markup=markup)
-                os.remove("image/stat.png")
+                os.remove("image/strong_buy_moving_averages.png")
                 sleep(1800)
 
         def strong_sell():
@@ -74,8 +74,8 @@ while True:
 
                 fig = go.Figure([go.Scatter(x=dataset['Datetime'], y=dataset['Close'])])
                 fig.update_layout(title=f"Монета: {coin}  Время: {dt.datetime.now()}")
-                fig.write_image("image/stat.png", scale=5)
-                bot.send_photo(name_channel, photo=open('image/stat.png', 'rb'))
+                fig.write_image("image/strong_sell_moving_averages.png", scale=5)
+                bot.send_photo(name_channel, photo=open('image/strong_sell_moving_averages.png', 'rb'))
 
                 link = f"https://www.binance.com/ru/futures/{coin}"
                 markup = types.InlineKeyboardMarkup()
@@ -91,7 +91,7 @@ while True:
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}\n
                 ''', reply_markup=markup)
 
-                os.remove("image/stat.png")
+                os.remove("image/strong_sell_moving_averages.png")
                 sleep(1800)
 
         # запускаем асинхронно 2 фукнции
@@ -122,8 +122,8 @@ while True:
 
                 fig = go.Figure([go.Scatter(x=dataset['Datetime'], y=dataset['Close'])])
                 fig.update_layout(title=f"Монета: {coin}  Время: {dt.datetime.now()}")
-                fig.write_image("image/stat.png", scale=5)
-                bot.send_photo(name_channel, photo=open('image/stat.png', 'rb'))
+                fig.write_image("image/strong_buy_oscillators.png", scale=5)
+                bot.send_photo(name_channel, photo=open('image/strong_buy_oscillators.png', 'rb'))
 
                 link = f"https://www.binance.com/ru/futures/{coin}"
                 markup = types.InlineKeyboardMarkup()
@@ -138,8 +138,7 @@ while True:
 👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}
             ''', reply_markup=markup)
-
-            os.remove("image/stat.png")
+            os.remove("image/strong_buy_oscillators.png")
             sleep(1800)
 
         def strong_sell():
@@ -152,8 +151,8 @@ while True:
 
                 fig = go.Figure([go.Scatter(x=dataset['Datetime'], y=dataset['Close'])])
                 fig.update_layout(title=f"Монета: {coin}  Время: {dt.datetime.now()}")
-                fig.write_image("image/stat.png", scale=5)
-                bot.send_photo(name_channel, photo=open('image/stat.png', 'rb'))
+                fig.write_image("image/strong_sell_oscillators.png", scale=5)
+                bot.send_photo(name_channel, photo=open('image/strong_sell_oscillators.png', 'rb'))
 
                 link = f"https://www.binance.com/ru/futures/{coin}"
                 markup = types.InlineKeyboardMarkup()
@@ -169,7 +168,7 @@ while True:
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}\n
             ''', reply_markup=markup)
 
-                os.remove("image/stat.png")
+                os.remove("image/strong_sell_oscillators.png")
                 sleep(1800)
 
         # запускаем асинхронно 2 фукнции
