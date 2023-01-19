@@ -20,7 +20,7 @@ while True:
     bot = telebot.TeleBot(TOKEN, parse_mode=None)
 
     # Указываем группу в которую будет присылать всю информацию
-    name_channel = '@HereWriteTelegramGroup'
+    name_channel = '@trading_statistics'
     
     
     def moving_averages():
@@ -57,8 +57,8 @@ while True:
 🧠Стратегия на: moving_averages\n
 🥇Название монеты: {coin}\n
 📈Актуальная цена: {dataset.tail(1)['Close'].value_counts().index[-1]}\n
-👇Минимальная цена за последние 2 дня: {dataset["Close"].min()}\n
-👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
+👇Минимальная цена за последние 2 дня: {dataset["Close"].min()} ({dataset.loc[dataset["Close"].idxmin(), "Datetime"]})\n
+👆Максимальная цена за последние 2 дня: {dataset["Close"].max()} ({dataset.loc[dataset["Close"].idxmax(), "Datetime"]})\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}
                 ''', reply_markup=markup)
                 os.remove("image/strong_buy_moving_averages.png")
@@ -86,8 +86,8 @@ while True:
 🧠Стратегия на: moving_averages\n
 🥇Название монеты: {coin}\n
 📈Актуальная цена: {dataset.tail(1)['Close'].value_counts().index[-1]}\n
-👇Минимальная цена за последние 2 дня: {dataset["Close"].min()}\n
-👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
+👇Минимальная цена за последние 2 дня: {dataset["Close"].min()} ({dataset.loc[dataset["Close"].idxmin(), "Datetime"]})\n
+👆Максимальная цена за последние 2 дня: {dataset["Close"].max()} ({dataset.loc[dataset["Close"].idxmax(), "Datetime"]})\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}\n
                 ''', reply_markup=markup)
 
@@ -134,8 +134,8 @@ while True:
 🧠Стратегия на: oscillators\n
 🥇Название монеты: {coin}\n
 📈Актуальная цена: {dataset.tail(1)['Close'].value_counts().index[-1]}\n
-👇Минимальная цена за последние 2 дня: {dataset["Close"].min()}\n
-👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
+👇Минимальная цена за последние 2 дня: {dataset["Close"].min()} ({dataset.loc[dataset["Close"].idxmin(), "Datetime"]})\n
+👆Максимальная цена за последние 2 дня: {dataset["Close"].max()} ({dataset.loc[dataset["Close"].idxmax(), "Datetime"]})\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}
             ''', reply_markup=markup)
             os.remove("image/strong_buy_oscillators.png")
@@ -163,8 +163,8 @@ while True:
 🧠Стратегия на: oscillators\n
 🥇Название монеты: {coin}\n
 📈Актуальная цена: {dataset.tail(1)['Close'].value_counts().index[-1]}\n
-👇Минимальная цена за последние 2 дня: {dataset["Close"].min()}\n
-👆Максимальная цена за последние 2 дня: {dataset["Close"].max()}\n
+👇Минимальная цена за последние 2 дня: {dataset["Close"].min()} ({dataset.loc[dataset["Close"].idxmin(), "Datetime"]})\n
+👆Максимальная цена за последние 2 дня: {dataset["Close"].max()} ({dataset.loc[dataset["Close"].idxmax(), "Datetime"]})\n
 💰Средняя цена за последние 2 дня: {dataset["Close"].mean()}\n
             ''', reply_markup=markup)
 
